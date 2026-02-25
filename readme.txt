@@ -6,4 +6,8 @@
 D:\web\实战漏洞\Fuzz爆破\dirsearch\temp_out.txt
 
 测试目录:
-D:\web\信息收集\JS_Extender\ffuf_2.0.0_windows_amd64\test.json
+D:\web\信息收集\JS_Extender\ffuf_2.0.0_windows_amd64\test.txt
+
+要加上网站特征参数:url&submit    有时还需加上验证cookie
+dvwa Submit大写S
+pikachu 小写s
