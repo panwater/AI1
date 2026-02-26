@@ -1,0 +1,101 @@
+颜色白数字小，大数字黑min-h-screen bg-gradient-to-br from-slate-900 to-emerald-950 text-slate-100
+
+本项目前端主要依赖 TailwindCSS 的类名，但我们统一了几组“核心颜色”，方便你后续手动调整整体风格。
+可以通过搜索这些类名或颜色组合，快速替换为你喜欢的颜色方案。
+
+一、页面背景（全局暗色底）
+------------------------
+- 位置：
+  - 首页：`web/templates/index.html` 中 `<body>` 标签的 `class`
+  - 历史页：`web/templates/history.html` 中 `<body>` 标签的 `class`
+- 当前类名：
+  - `bg-gradient-to-br from-slate-950 via-slate-900 to-zinc-900 text-slate-100`
+- 修改建议：
+  - 想要更亮：把 `slate-950/900` 换成 `slate-800/700`
+  - 想要偏蓝：例如改为 `from-slate-950 via-slate-900 to-sky-900`
+
+二、主品牌色 / 高亮色（科技绿）
+----------------------------
+- 主要用于：
+  - 顶部导航选中态
+  - 标题高亮
+  - “本地运行”徽标
+  - 主要按钮、历史列表 hover 高亮
+- 常见类名（可统一搜索替换）：
+  - 文本：`text-emerald-300` / `text-emerald-400`
+  - 背景：`bg-emerald-500` / `bg-emerald-500/10`
+  - 边框：`border-emerald-400/50` / `border-emerald-500/40`
+- 如果你想改成“科技蓝”：
+  - 把上面所有 `emerald-XXX` 改成 `sky-XXX` 或 `cyan-XXX` 即可
+
+三、卡片 & 面板背景
+------------------
+- 位置：
+  - 首页主表单：`index.html` 中 `section` 的 `class`
+  - 历史报告卡片：`history.html` 中每条报告外层 `div`
+- 当前类名组合：
+  - 边框：`border-slate-700/80`
+  - 背景：`bg-slate-900/80`
+  - 阴影：`shadow-[0_0_30px_rgba(15,23,42,0.8)]` / `shadow-[0_0_40px_rgba(15,23,42,0.9)]`
+- 调整思路：
+  - 变亮：把 `bg-slate-900/80` 改成 `bg-slate-800/80`
+  - 减弱霓虹：降低阴影透明度，例如 `rgba(34,197,94,0.35)` 改成 `rgba(34,197,94,0.15)`
+
+四、文字颜色层级
+----------------
+- 主文字（标题/关键信息）：
+  - `text-slate-100` / `text-emerald-300`
+- 次要文字（说明、摘要）：
+  - `text-slate-400`
+- 弱提示（辅助说明）：
+  - `text-slate-500`
+- 修改策略：
+  - 想整体更亮：把 `text-slate-400` 改成 `text-slate-300`
+  - 想更暗：把 `text-slate-100` 改成 `text-slate-200`
+
+五、按钮与交互元素
+------------------
+- 主操作按钮（开始分析、查看）：
+  - 类似：`bg-emerald-500 hover:bg-emerald-400 text-slate-900`
+- 次要按钮（下载等）：
+  - 历史页下载：`border-slate-600 bg-slate-900 hover:bg-slate-800 text-slate-100`
+- 修改为其他主色：
+  - 统一把 `bg-emerald-XXX` / `hover:bg-emerald-XXX` / `border-emerald-XXX` 替换为对应色系即可
+
+六、警告 / 状态颜色
+-------------------
+- 顶部授权警告条：
+  - 边框：`border-amber-500/40`
+  - 背景：`bg-amber-900/30`
+  - 文本：`text-amber-200`
+- 最近任务状态块：
+  - 成功：`border-emerald-500/40 bg-emerald-900/30 text-emerald-200`
+  - 失败：`border-red-500/40 bg-red-900/30 text-red-200`
+  - 进行中：`border-blue-500/40 bg-blue-900/30 text-blue-200`
+- 如需整体调色：
+  - 搜索对应颜色（`amber-` / `red-` / `blue-`）并按需替换
+
+七、Loading 动画小圆点
+----------------------
+- 文件：`web/static/style.css`
+- 当前颜色：
+  - `.loading-dot { background-color: red; }`
+- 如果你希望和整体科技绿统一：
+  - 可改为：`background-color: #22c55e;`（约等于 Tailwind 的 `emerald-500`）
+
+八、快速整体替换技巧
+--------------------
+1. 如果只是想整体从“科技绿”换到“科技蓝”：
+   - 全局搜索：`emerald-`
+   - 统一替换成：`sky-` 或 `cyan-`
+2. 如果想整体提亮或压暗：
+   - 搜索：`text-slate-1` / `text-slate-4` / `bg-slate-9` 等关键类名
+   - 按 Tailwind 的色阶（100-900）上下调整一档
+
+九、注意事项
+------------
+- 所有颜色都通过 Tailwind 类或内联 `shadow-[...]` 写在模板里，不需要改 JS/Python。
+- 修改前建议对 `web/templates` 和 `web/static` 目录做一次备份，方便回滚。
+- 如需进一步抽象为“主题切换”，可以在后续把这些类名提取为 Jinja2 变量或前端配置。
+
+
